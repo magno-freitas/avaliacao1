@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureData TI - Plano de Segurança</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="dashboard.html">Voltar ao Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Sair</a></li>
+        </ul>
+    </div>
+    
+    <div class="dashboard fade-in">
+        <h2>Plano de Segurança - Sistema SecureData TI</h2>
+        
+        <div class="card">
+            <h4>1. Lista de Usuários e Permissões</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Perfil</th>
+                        <th>Permissões</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>admin</td>
+                        <td>Administrador</td>
+                        <td>Visualizar, Editar, Gerenciar usuários, Configurar sistema</td>
+                    </tr>
+                    <tr>
+                        <td>editor</td>
+                        <td>Editor</td>
+                        <td>Visualizar, Editar</td>
+                    </tr>
+                    <tr>
+                        <td>leitor</td>
+                        <td>Leitor</td>
+                        <td>Visualizar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="card">
+            <h4>2. Lógica de Controle Implementada</h4>
+            <ul>
+                <li>Autenticação obrigatória para acesso ao sistema</li>
+                <li>Controle de sessão via localStorage</li>
+                <li>Validação de permissões em tempo real</li>
+                <li>Redirecionamento automático para login se não autenticado</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h4>3. Simulação de Tentativas de Acesso Inválido</h4>
+            <ul>
+                <li>Máximo de 3 tentativas de login</li>
+                <li>Bloqueio temporário após tentativas excessivas</li>
+                <li>Mensagens de erro específicas</li>
+                <li>Reset automático do contador após timeout</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h4>4. Prints de Tela das Permissões Funcionando</h4>
+            <p>O sistema demonstra em tempo real:</p>
+            <ul>
+                <li>Diferentes interfaces baseadas no perfil do usuário</li>
+                <li>Ocultação de funcionalidades não permitidas</li>
+                <li>Mensagens de acesso negado quando apropriado</li>
+                <li>Controle de navegação por permissões</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>

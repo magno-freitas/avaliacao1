@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureData TI - Editar Usuário</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="dashboard.html">Voltar ao Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Sair</a></li>
+        </ul>
+    </div>
+    
+    <div class="dashboard fade-in">
+        <h2>Editar Usuário</h2>
+        <div id="alert-container"></div>
+        
+        <form id="editUserForm">
+            <div class="card">
+                <h4>Informações do Usuário</h4>
+                <div style="margin-bottom: 1rem;">
+                    <label>Usuário:</label>
+                    <input type="text" id="username" readonly style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px; background:#f5f5f5;">
+                </div>
+                
+                <div style="margin-bottom: 1rem;">
+                    <label>Perfil:</label>
+                    <select id="userRole" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;">
+                        <option value="Administrador">Administrador</option>
+                        <option value="Editor">Editor</option>
+                        <option value="Leitor">Leitor</option>
+                    </select>
+                </div>
+                
+                <div style="margin-bottom: 1rem;">
+                    <label>Nova Senha:</label>
+                    <input type="password" id="newPassword" placeholder="Digite nova senha (opcional)" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;">
+                </div>
+                
+                <div style="margin-bottom: 1rem;">
+                    <label>Status:</label>
+                    <select id="userStatus" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;">
+                        <option value="Ativo">Ativo</option>
+                        <option value="Inativo">Inativo</option>
+                    </select>
+                </div>
+                
+                <button type="button" class="btn btn-success" onclick="saveUserChanges()">Salvar Alterações</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='dashboard.html'">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script>
+        // Carrega dados do usuário
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const username = urlParams.get('user');
+            
+            if (username) {
+                document.getElementById('username').value = username;
+                
+                // Carrega dados reais do sistema
+                const systemUsers = JSON.parse(localStorage.getItem('systemUsers') || '{}');
+                if (systemUsers[username]) {
+                    document.getElementById('userRole').value = systemUsers[username].role;
+                    document.getElementById('userStatus').value = systemUsers[username].status;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

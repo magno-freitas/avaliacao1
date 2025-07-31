@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureData TI - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a href="#" onclick="showSection('users')">Usuários</a></li>
+            <li><a href="#" onclick="showSection('documents')">Documentos</a></li>
+            <li><a href="teste-sistema.html">Teste Sistema</a></li>
+            <li><a href="#" onclick="logout()">Sair</a></li>
+        </ul>
+    </div>
+    
+    <div class="dashboard fade-in" id="mainContent">
+        <h2 id="welcome"></h2>
+        <div id="alert-container"></div>
+        
+        <div class="permissions">
+            <h3>Suas Permissões:</h3>
+            <div id="permission"></div>
+        </div>
+        
+        <div id="dashboard-section" class="section">
+            <div class="card">
+                <h4>Painel de Controle</h4>
+                <p>Bem-vindo ao sistema de controle de documentos da SecureData TI.</p>
+            </div>
+        </div>
+        
+        <div id="users-section" class="section hidden">
+            <div class="card">
+                <h4>Gerenciamento de Usuários</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Usuário</th>
+                            <th>Perfil</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="user-admin">
+                            <td>admin</td>
+                            <td id="role-admin">Administrador</td>
+                            <td id="status-admin">Ativo</td>
+                            <td>
+                                <button class="btn btn-primary" onclick="editUser('admin')">Editar</button>
+                                <button class="btn btn-danger" id="btn-admin" onclick="toggleUser('admin')">Desativar</button>
+                            </td>
+                        </tr>
+                        <tr id="user-editor">
+                            <td>editor</td>
+                            <td id="role-editor">Editor</td>
+                            <td id="status-editor">Ativo</td>
+                            <td>
+                                <button class="btn btn-primary" onclick="editUser('editor')">Editar</button>
+                                <button class="btn btn-danger" id="btn-editor" onclick="toggleUser('editor')">Desativar</button>
+                            </td>
+                        </tr>
+                        <tr id="user-leitor">
+                            <td>leitor</td>
+                            <td id="role-leitor">Leitor</td>
+                            <td id="status-leitor">Ativo</td>
+                            <td>
+                                <button class="btn btn-primary" onclick="editUser('leitor')">Editar</button>
+                                <button class="btn btn-danger" id="btn-leitor" onclick="toggleUser('leitor')">Desativar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div id="documents-section" class="section hidden">
+            <div class="card">
+                <h4>Documentos do Sistema</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Documento</th>
+                            <th>Tipo</th>
+                            <th>Data</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Manual do Usuário</td>
+                            <td>PDF</td>
+                            <td>15/10/2024</td>
+                            <td>
+                                <button class="btn btn-success" onclick="viewDocument('manual')">Visualizar</button>
+                                <button class="btn btn-primary" onclick="editDocument('manual')">Editar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Plano de Segurança</td>
+                            <td>DOC</td>
+                            <td>10/10/2024</td>
+                            <td>
+                                <button class="btn btn-success" onclick="viewDocument('security')">Visualizar</button>
+                                <button class="btn btn-primary" onclick="editDocument('security')">Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureData TI - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-layout">
+    <div class="container fade-in">
+        <h2>SecureData TI</h2>
+        <p>Sistema de Controle de Documentos</p>
+        <div id="alert-container"></div>
+        <form id="loginForm" action="auth" method="post">
+            <input type="text" name="username" id="username" placeholder="Usuário" required>
+            <input type="password" name="password" id="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="mt-2">
+            <small>Usuários de teste: admin/123, editor/123, leitor/123</small>
+        </div>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html>

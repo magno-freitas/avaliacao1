@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureData TI - Teste do Sistema</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="dashboard.html">Voltar ao Dashboard</a></li>
+            <li><a href="index.html">Login</a></li>
+        </ul>
+    </div>
+    
+    <div class="dashboard fade-in">
+        <h2>Teste Completo do Sistema</h2>
+        
+        <div class="card">
+            <h4>Como Testar o Sistema Completo:</h4>
+            <ol>
+                <li><strong>Login como Admin:</strong> admin/123</li>
+                <li><strong>Ir para Usuários</strong> e clicar em "Editar" no usuário "leitor"</li>
+                <li><strong>Alterar perfil</strong> de "Leitor" para "Editor"</li>
+                <li><strong>Alterar senha</strong> de "123" para "456"</li>
+                <li><strong>Salvar alterações</strong></li>
+                <li><strong>Fazer logout</strong></li>
+                <li><strong>Tentar login</strong> com leitor/123 - deve falhar</li>
+                <li><strong>Login com</strong> leitor/456 - deve funcionar</li>
+                <li><strong>Verificar permissões</strong> - agora pode editar documentos</li>
+            </ol>
+        </div>
+        
+        <div class="card">
+            <h4>Funcionalidades Implementadas:</h4>
+            <ul>
+                <li>✅ Alteração de perfil funciona no sistema real</li>
+                <li>✅ Alteração de senha funciona no login</li>
+                <li>✅ Ativação/desativação impede login</li>
+                <li>✅ Permissões são aplicadas conforme novo perfil</li>
+                <li>✅ Dados persistem entre sessões</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h4>Status Atual dos Usuários:</h4>
+            <div id="user-status"></div>
+            <button class="btn btn-primary" onclick="showCurrentUsers()">Atualizar Status</button>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script>
+        function showCurrentUsers() {
+            const users = JSON.parse(localStorage.getItem('systemUsers') || '{}');
+            let html = '<table><tr><th>Usuário</th><th>Senha</th><th>Perfil</th><th>Status</th></tr>';
+            
+            Object.keys(users).forEach(username => {
+                const user = users[username];
+                html += `<tr>
+                    <td>${username}</td>
+                    <td>${user.password}</td>
+                    <td>${user.role}</td>
+                    <td>${user.status}</td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            document.getElementById('user-status').innerHTML = html;
+        }
+        
+        // Mostra status inicial
+        document.addEventListener('DOMContentLoaded', showCurrentUsers);
+    </script>
+</body>
+</html>

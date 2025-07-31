@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureData TI - Editar Manual</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="dashboard.html">Voltar ao Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Sair</a></li>
+        </ul>
+    </div>
+    
+    <div class="dashboard fade-in">
+        <h2>Editar Manual do Usuário</h2>
+        <div id="alert-container"></div>
+        
+        <form id="editForm">
+            <div class="card">
+                <h4>1. Introdução</h4>
+                <textarea rows="3" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;" id="intro">O Sistema SecureData TI é uma solução empresarial para controle de documentos internos com diferentes níveis de acesso baseados em perfis de usuário.</textarea>
+            </div>
+            
+            <div class="card">
+                <h4>2. Perfis de Usuário</h4>
+                <textarea rows="5" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;" id="profiles">Administrador: Acesso completo ao sistema, incluindo gerenciamento de usuários
+Editor: Pode visualizar e editar documentos
+Leitor: Apenas visualização de documentos</textarea>
+            </div>
+            
+            <div class="card">
+                <h4>3. Funcionalidades de Segurança</h4>
+                <textarea rows="4" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;" id="security">Controle de acesso baseado em perfis
+Bloqueio após 3 tentativas de login inválidas
+Validação de permissões em tempo real
+Logout automático por segurança</textarea>
+            </div>
+            
+            <div class="card">
+                <button type="button" class="btn btn-success" onclick="saveDocument()">Salvar Alterações</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='manual.html'">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>

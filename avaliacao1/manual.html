@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureData TI - Manual do Usuário</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="dashboard.html">Voltar ao Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Sair</a></li>
+        </ul>
+    </div>
+    
+    <div class="dashboard fade-in">
+        <h2>Manual do Usuário - Sistema SecureData TI</h2>
+        
+        <div class="card">
+            <h4>1. Introdução</h4>
+            <p>O Sistema SecureData TI é uma solução empresarial para controle de documentos internos com diferentes níveis de acesso baseados em perfis de usuário.</p>
+        </div>
+        
+        <div class="card">
+            <h4>2. Perfis de Usuário</h4>
+            <ul>
+                <li><strong>Administrador:</strong> Acesso completo ao sistema, incluindo gerenciamento de usuários</li>
+                <li><strong>Editor:</strong> Pode visualizar e editar documentos</li>
+                <li><strong>Leitor:</strong> Apenas visualização de documentos</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h4>3. Funcionalidades de Segurança</h4>
+            <ul>
+                <li>Controle de acesso baseado em perfis</li>
+                <li>Bloqueio após 3 tentativas de login inválidas</li>
+                <li>Validação de permissões em tempo real</li>
+                <li>Logout automático por segurança</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h4>4. Como Usar</h4>
+            <ol>
+                <li>Faça login com suas credenciais</li>
+                <li>Navegue pelas seções disponíveis conforme seu perfil</li>
+                <li>Utilize as funcionalidades permitidas para seu nível de acesso</li>
+                <li>Sempre faça logout ao terminar</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>

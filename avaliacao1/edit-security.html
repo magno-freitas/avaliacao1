@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureData TI - Editar Plano de Segurança</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="dashboard.html">Voltar ao Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Sair</a></li>
+        </ul>
+    </div>
+    
+    <div class="dashboard fade-in">
+        <h2>Editar Plano de Segurança</h2>
+        <div id="alert-container"></div>
+        
+        <form id="editForm">
+            <div class="card">
+                <h4>1. Lista de Usuários e Permissões</h4>
+                <textarea rows="4" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;" id="users">admin - Administrador - Visualizar, Editar, Gerenciar usuários, Configurar sistema
+editor - Editor - Visualizar, Editar
+leitor - Leitor - Visualizar</textarea>
+            </div>
+            
+            <div class="card">
+                <h4>2. Lógica de Controle Implementada</h4>
+                <textarea rows="4" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;" id="logic">Autenticação obrigatória para acesso ao sistema
+Controle de sessão via localStorage
+Validação de permissões em tempo real
+Redirecionamento automático para login se não autenticado</textarea>
+            </div>
+            
+            <div class="card">
+                <h4>3. Simulação de Tentativas de Acesso Inválido</h4>
+                <textarea rows="4" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px;" id="attempts">Máximo de 3 tentativas de login
+Bloqueio temporário após tentativas excessivas
+Mensagens de erro específicas
+Reset automático do contador após timeout</textarea>
+            </div>
+            
+            <div class="card">
+                <button type="button" class="btn btn-success" onclick="saveDocument()">Salvar Alterações</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='plano-seguranca.html'">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>
