@@ -19,52 +19,58 @@
         
         <div class="card">
             <h4>1. Lista de Usuários e Permissões</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Usuário</th>
-                        <th>Perfil</th>
-                        <th>Permissões</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>admin</td>
-                        <td>Administrador</td>
-                        <td>Visualizar, Editar, Gerenciar usuários, Configurar sistema</td>
-                    </tr>
-                    <tr>
-                        <td>editor</td>
-                        <td>Editor</td>
-                        <td>Visualizar, Editar</td>
-                    </tr>
-                    <tr>
-                        <td>leitor</td>
-                        <td>Leitor</td>
-                        <td>Visualizar</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="users-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Usuário</th>
+                            <th>Perfil</th>
+                            <th>Permissões</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>admin</td>
+                            <td>Administrador</td>
+                            <td>Visualizar, Editar, Gerenciar usuários, Configurar sistema</td>
+                        </tr>
+                        <tr>
+                            <td>editor</td>
+                            <td>Editor</td>
+                            <td>Visualizar, Editar</td>
+                        </tr>
+                        <tr>
+                            <td>leitor</td>
+                            <td>Leitor</td>
+                            <td>Visualizar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         
         <div class="card">
             <h4>2. Lógica de Controle Implementada</h4>
-            <ul>
-                <li>Autenticação obrigatória para acesso ao sistema</li>
-                <li>Controle de sessão via localStorage</li>
-                <li>Validação de permissões em tempo real</li>
-                <li>Redirecionamento automático para login se não autenticado</li>
-            </ul>
+            <div id="logic-content">
+                <ul>
+                    <li>Autenticação obrigatória para acesso ao sistema</li>
+                    <li>Controle de sessão via localStorage</li>
+                    <li>Validação de permissões em tempo real</li>
+                    <li>Redirecionamento automático para login se não autenticado</li>
+                </ul>
+            </div>
         </div>
         
         <div class="card">
             <h4>3. Simulação de Tentativas de Acesso Inválido</h4>
-            <ul>
-                <li>Máximo de 3 tentativas de login</li>
-                <li>Bloqueio temporário após tentativas excessivas</li>
-                <li>Mensagens de erro específicas</li>
-                <li>Reset automático do contador após timeout</li>
-            </ul>
+            <div id="attempts-content">
+                <ul>
+                    <li>Máximo de 3 tentativas de login</li>
+                    <li>Bloqueio temporário após tentativas excessivas</li>
+                    <li>Mensagens de erro específicas</li>
+                    <li>Reset automático do contador após timeout</li>
+                </ul>
+            </div>
         </div>
         
         <div class="card">
@@ -80,5 +86,28 @@
     </div>
     
     <script src="js/auth.js"></script>
+    <script>
+        // Carrega conteúdo salvo do plano de segurança
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedContent = localStorage.getItem('securityContent');
+            if (savedContent) {
+                const data = JSON.parse(savedContent);
+                
+                const usersElement = document.getElementById('users-content');
+                const logicElement = document.getElementById('logic-content');
+                const attemptsElement = document.getElementById('attempts-content');
+                
+                if (data.users && usersElement) {
+                    usersElement.innerHTML = data.users.replace(/\n/g, '<br>');
+                }
+                if (data.logic && logicElement) {
+                    logicElement.innerHTML = data.logic.replace(/\n/g, '<br>');
+                }
+                if (data.attempts && attemptsElement) {
+                    attemptsElement.innerHTML = data.attempts.replace(/\n/g, '<br>');
+                }
+            }
+        });
+    </script>
 </body>
 </html>

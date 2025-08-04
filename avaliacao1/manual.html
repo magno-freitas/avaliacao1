@@ -19,26 +19,30 @@
         
         <div class="card">
             <h4>1. Introdução</h4>
-            <p>O Sistema SecureData TI é uma solução empresarial para controle de documentos internos com diferentes níveis de acesso baseados em perfis de usuário.</p>
+            <p id="intro-content">O Sistema SecureData TI é uma solução empresarial para controle de documentos internos com diferentes níveis de acesso baseados em perfis de usuário.</p>
         </div>
         
         <div class="card">
             <h4>2. Perfis de Usuário</h4>
-            <ul>
-                <li><strong>Administrador:</strong> Acesso completo ao sistema, incluindo gerenciamento de usuários</li>
-                <li><strong>Editor:</strong> Pode visualizar e editar documentos</li>
-                <li><strong>Leitor:</strong> Apenas visualização de documentos</li>
-            </ul>
+            <div id="profiles-content">
+                <ul>
+                    <li><strong>Administrador:</strong> Acesso completo ao sistema, incluindo gerenciamento de usuários</li>
+                    <li><strong>Editor:</strong> Pode visualizar e editar documentos</li>
+                    <li><strong>Leitor:</strong> Apenas visualização de documentos</li>
+                </ul>
+            </div>
         </div>
         
         <div class="card">
             <h4>3. Funcionalidades de Segurança</h4>
-            <ul>
-                <li>Controle de acesso baseado em perfis</li>
-                <li>Bloqueio após 3 tentativas de login inválidas</li>
-                <li>Validação de permissões em tempo real</li>
-                <li>Logout automático por segurança</li>
-            </ul>
+            <div id="security-content">
+                <ul>
+                    <li>Controle de acesso baseado em perfis</li>
+                    <li>Bloqueio após 3 tentativas de login inválidas</li>
+                    <li>Validação de permissões em tempo real</li>
+                    <li>Logout automático por segurança</li>
+                </ul>
+            </div>
         </div>
         
         <div class="card">
@@ -53,5 +57,28 @@
     </div>
     
     <script src="js/auth.js"></script>
+    <script>
+        // Carrega conteúdo salvo do manual
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedContent = localStorage.getItem('manualContent');
+            if (savedContent) {
+                const data = JSON.parse(savedContent);
+                
+                const introElement = document.getElementById('intro-content');
+                const profilesElement = document.getElementById('profiles-content');
+                const securityElement = document.getElementById('security-content');
+                
+                if (data.intro && introElement) {
+                    introElement.innerHTML = data.intro.replace(/\n/g, '<br>');
+                }
+                if (data.profiles && profilesElement) {
+                    profilesElement.innerHTML = data.profiles.replace(/\n/g, '<br>');
+                }
+                if (data.security && securityElement) {
+                    securityElement.innerHTML = data.security.replace(/\n/g, '<br>');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
