@@ -88,6 +88,6 @@ O sistema demonstra todas as capacidades solicitadas na avaliação:
 - **H8**: Manual de usuário com especificações do sistema
 
 ## Autor
-Magno Valadares de Freitas
+Magno Valadares de Freitas - 
 Desenvolvido para avaliação prática - SENAI SC
 Curso: Técnico em Desenvolvimento de Sistemas
